@@ -11,6 +11,7 @@ textarea.pack()
 menu = Menu(root)
 file = Menu(menu, tearoff=0)
 
+
 def open_file():
     print('Open File')
     root.filename = filedialog.askopenfilename(
@@ -21,8 +22,10 @@ def open_file():
     file = open(root.filename)
     textarea.insert('end', file.read())
 
+
 def save_file():
     pass
+
 
 def save_file_as():
     root.filename = filedialog.asksaveasfile(mode='w', defaultextension='.txt')
@@ -32,11 +35,13 @@ def save_file_as():
     root.filename.write(file_to_save)
     root.filename.close()
 
+
 def exit():
     message = messagebox.askquestion('Notepad', 'Do you want to save?')
     if message == 'yes':
         save_file_as()
     root.destroy()
+
 
 file.add_command(label='Open', command=open_file)
 file.add_command(label='Save', command=save_file)
